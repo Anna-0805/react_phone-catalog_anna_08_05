@@ -7,12 +7,12 @@ import {
 import { App } from './App';
 import { HomePage } from './pages/HomePage/HomePage';
 import { PhonesPage } from './pages/PhonesPage/PhonesPage';
-import { ProductDetailsPage } from './components/ProductDetails/ProductDetailsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage/AccessoriesPage';
 import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
 import { NotFoundPage } from './pages/NotFound';
 import { CartPage } from './pages/CartPage/CartPage';
+import { ProductDetailsPage } from './components/ProductDetails/ProductDetails';
 
 export const Root = () => (
   <Router>
