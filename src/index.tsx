@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import React from 'react';
 import 'bulma/css/bulma.css';
+import './styles/grid.scss';
 import { Root } from './Root';
 import { FavoritesProvider } from './context/FavoritesContext';
 import { CartProvider } from './context/CartContext';
