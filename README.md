@@ -4,8 +4,8 @@ A modern e-commerce phone catalog built with React and TypeScript.
 ## Live Demo
 [DEMO LINK](https://anna-0805.github.io/react_phone-catalog_anna_08_05/)
 
+## Design (Figma):
 https://www.figma.com/design/T5ttF21UnT6RRmCQQaZc6L/Phone-catalog--V2--Original?node-id=0-1&p=f
-
 
 ## About the Project
 This project is a fully functional phone catalog application inspired by a real online store.
