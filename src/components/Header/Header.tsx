@@ -8,7 +8,7 @@ import './Header.scss';
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { favorites } = useFavorites();
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const favoritesCount = favorites.length;
 
   const { count: cartCount } = useCartContext();
@@ -56,7 +56,10 @@ export const Header: React.FC = () => {
       <div className="header__container">
         {/* Logo */}
         <Link to="/" className="header__logo">
-          <img src={`img/Logo.svg`} alt="Nice Gadgets" />
+          <img
+            src={theme === 'dark' ? 'img/Logo.svg' : 'img/dark-Logo.svg'}
+            alt="Nice Gadgets"
+          />
         </Link>
         {showSearch && (
           <div className="header__search-wrapper">
@@ -171,7 +174,7 @@ export const Header: React.FC = () => {
             />
           </button>
         </div>
-        <button onClick={toggleTheme}>🌙</button>
+        <button onClick={toggleTheme}>{theme === 'dark' ? '☀️' : '🌙'}</button>
       </div>
     </header>
   );

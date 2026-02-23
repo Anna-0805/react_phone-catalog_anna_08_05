@@ -60,7 +60,6 @@ export const PhonesPage: React.FC = () => {
 
   const isEmpty = !loading && phoneProducts.length === 0;
 
-  // ✅ синхронизация URL
   const updateParams = (params: {
     sort?: string;
     page?: number;

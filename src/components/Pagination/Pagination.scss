@@ -12,19 +12,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #E2E6E9;
-    color: #313237;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
     line-height: 21px;
     font-weight: 600;
     cursor: pointer;
-    background: #fff;
+    background: var(--button);
     font-size: 14px;
     transition: 0.2s ease;
 
 
     &:disabled {
       border-color: #f1f2f5;
-      color: #b4bdc3;
+      color:  var(--text-primary);
       cursor: default;
     }
 
@@ -35,9 +35,9 @@
 
 
     &.is-active {
-      background-color: #313237;
-      color: #fff;
-      border-color: #313237;
+      background-color: var(--button1);
+      color: var(--text-primary);
+      border-color: var(--border);
     }
   }
 }

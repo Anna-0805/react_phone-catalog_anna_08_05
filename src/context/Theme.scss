@@ -5,7 +5,13 @@ body[data-theme='light'] {
   --text-primary: #313237;
   --text-secondary: #89939a;
    --text-heading: #313237;
-  --border: #e2e6e9;
+  --border: #e5e5e5;
+--button: #fff;
+--button1: #313237;
+  --text-1: #27ae60;
+
+
+
 }
 
 body[data-theme='dark'] {
@@ -16,6 +22,10 @@ body[data-theme='dark'] {
   --text-secondary: #9ca3af;
   --text-heading: #f9fafb;
   --border: #1f2933;
+  --button: #323542;
+  --button1: #905BFF;
+  --text-1: #F1F2F9;
+
 }
 
 h1,
@@ -47,5 +57,24 @@ body {
 
 button {
   border-color: var(--border);
-  color: var(--text-main);
+  color: var(--text-primary);
+}
+
+:root {
+  --bg: #fff;
+  --bg-secondary: #fafbfc;
+  --card-bg: #fff;
+  --text-primary: #313237;
+  --text-secondary: #89939a;
+  --text-heading: #313237;
+  --border: #e2e6e9;
+}
+
+body[data-theme='dark'] .icon img,
+body[data-theme='dark'] .header__search-icon-img {
+  filter: brightness(0) invert(1);
+}
+
+body[data-theme='dark'] .product-card__button2 img {
+  filter: brightness(0) invert(1) contrast(1.2);
 }

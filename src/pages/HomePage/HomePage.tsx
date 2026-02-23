@@ -44,14 +44,12 @@ export const HomePage: React.FC = () => {
     .filter(p => ['13', '14'].some(model => p.itemId.includes(model)))
     .map(p => ({
       ...p,
-      price: p.fullPrice, // підміняємо на regular price
+      price: p.fullPrice,
     }))
     .slice(0, 10);
-  /* .sort((a, b) => b.year - a.year)
-    .slice(0, 10);*/
 
   // -------------------------------
-  // HOT PRICES (сортуємо по ціні)
+  // HOT PRICES
   // -------------------------------
   const hotProducts = [...phones]
     .filter(p => p.price < p.fullPrice)

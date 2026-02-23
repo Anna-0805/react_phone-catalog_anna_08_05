@@ -1,6 +1,6 @@
 .footer {
-  background-color: #fff;
-  box-shadow: 0 -1px 0 #e2e6e9;
+  background-color: var(--bg);
+  box-shadow: 0 -1px 0 var(--border);
   font-family: Mont, sans-serif;
   height: 96px;
 
@@ -8,7 +8,7 @@
      @media (max-width: 640px) {
       padding: 32px 16px;
     box-shadow: none;
-    border-top: 1px solid #e2e6e9;
+    border-top: 1px solid var(--border);
     height: auto;
      }
 
@@ -33,7 +33,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 32px; // между блоками лого / навигация / кнопка
+      gap: 32px;
       width: 100%;
       height: auto;
     }
@@ -89,7 +89,7 @@
     }
 
     a {
-      color: #89939a;
+      color: var(--text-secondary);
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
@@ -97,7 +97,7 @@
       transition: color 0.3s;
 
       &:hover {
-        color: #313237;
+        color: var(--text-primary);
       }
     }
   }
@@ -112,7 +112,7 @@
     cursor: pointer;
     font-size: 12px;
     font-weight: 600;
-    color: #89939a;
+    color: var(--text-secondary);
     white-space: nowrap;
     margin-right: 0;
 
@@ -136,10 +136,10 @@
     }
 
     &:hover {
-      color: #313237;
+      color: var(--text-primary);
 
       .footer__arrow {
-        border-color: #313237;
+        border-color: var(--text-primary);
       }
     }
 
@@ -166,7 +166,7 @@
    padding: 2px;
    &:hover {
       color: white;
-      background-color: #313237;
+      background-color: var(--text-primary);
   }
   }
 
