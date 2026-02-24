@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.scss';
-import { useLang } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
 
 export const Footer: React.FC = () => {
-  const { lang, setLang, t } = useLang();
+  const { theme } = useTheme();
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -13,35 +13,28 @@ export const Footer: React.FC = () => {
       <div className="footer__container">
         {/* Логотип */}
         <div className="footer__logo">
-          <img src={`img/Logo.svg`} alt="Nice Gadgets" />
+          <img
+            src={theme === 'dark' ? 'img/dark-Logo.svg' : 'img/Logo.svg'}
+            alt="Nice Gadgets"
+          />
         </div>
 
         {/* Навигация */}
         <nav className="footer__nav">
           <a href="https://github.com" target="_blank" rel="noreferrer">
-            {t('github')}
+            {'github'}
           </a>
-          <a href="#contacts">{t('contacts')}</a>
-          <a href="#rights">{t('rights')}</a>
+          <a href="#contacts">{'contacts'}</a>
+          <a href="#rights">{'rights'}</a>
         </nav>
-
-        <div className="footer__lang">
-          <button className="footer__lang-1" onClick={() => setLang('en')}>
-            EN
-          </button>
-          <button className="footer__lang-2" onClick={() => setLang('ua')}>
-            UA
-          </button>
-          <p>Current {lang}</p>
-        </div>
 
         {/* Кнопка вверх */}
         <button
           className="footer__back-to-top"
           onClick={handleScrollToTop}
-          aria-label={t('backToTop')}
+          aria-label={'backToTop'}
         >
-          <span>{t('backToTop')}</span>
+          <span>{'backToTop'}</span>
           <div className="footer__arrow">
             <img src={`img/icons/up.svg`} alt="Up" />
           </div>

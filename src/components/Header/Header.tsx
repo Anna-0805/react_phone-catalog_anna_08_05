@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
         {/* Logo */}
         <Link to="/" className="header__logo">
           <img
-            src={theme === 'dark' ? 'img/Logo.svg' : 'img/dark-Logo.svg'}
+            src={theme === 'dark' ? 'img/dark-Logo.svg' : 'img/Logo.svg'}
             alt="Nice Gadgets"
           />
         </Link>

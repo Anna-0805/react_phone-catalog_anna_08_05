@@ -4,6 +4,7 @@ import { Product } from '../../types/Product';
 import './ProductCard.scss';
 import { useFavorites } from '../../context/FavoritesContext';
 import { useCartContext } from '../../context/CartContext';
+import { useTheme } from '../../context/ThemeContext';
 
 type Props = {
   product: Product;
@@ -13,27 +14,16 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const { toggleFavorite, isFavorite } = useFavorites();
   const { cartItems, addItem } = useCartContext();
   const active = isFavorite(product.id);
+  const { theme } = useTheme();
 
   const isInCart = cartItems.some(item => item.id === product.itemId);
 
   const imagePath = `img/phones/${product.namespaceId}/${product.color}/00.webp`;
-
-  /*const handleAddClick = () => {
-    setCartItems(prev => [
-      ...prev,
-      {
-        id: product.itemId,
-        name: product.name,
-        image: product.image || imagePath,
-        price: product.price,
-        quantity: 1,
-        color: 'default',
-        capacity: 'default',
-      },
-    ]);
-
-    setIsAdded(true);
-  };*/
+  const heartIcon = active
+    ? 'img/icons/red.svg'
+    : theme === 'dark'
+      ? 'img/icons/white.svg'
+      : 'img/icons/favourites.svg';
 
   return (
     <div className="product-card" data-cy="product">
@@ -96,10 +86,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             className={`product-card__button2 ${active ? 'active' : ''}`}
             onClick={() => toggleFavorite(product)}
           >
-            <img
-              src={active ? `img/icons/red.svg` : `img/icons/favourites.svg`}
-              alt="Add to favorites"
-            />
+            <img src={heartIcon} alt="Add to favorites" />
           </button>
         </div>
       </div>

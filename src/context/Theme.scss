@@ -5,17 +5,19 @@ body[data-theme='light'] {
   --text-primary: #313237;
   --text-secondary: #89939a;
    --text-heading: #313237;
-  --border: #e5e5e5;
+  --border: #e2e6e9;
+   --bg1:#fafbfc;
+      --bg2:#313237;
 --button: #fff;
 --button1: #313237;
+--button2: #313237;
   --text-1: #27ae60;
-
-
-
+    --text-2: #fff;
 }
 
 body[data-theme='dark'] {
   --bg: #0f172a;
+     --bg2:#e2e6e9;
   --bg-secondary: #020617;
   --card-bg: #111827;
   --text-primary: #e5e7eb;
@@ -24,7 +26,9 @@ body[data-theme='dark'] {
   --border: #1f2933;
   --button: #323542;
   --button1: #905BFF;
+  --button2: #e5e7eb;
   --text-1: #F1F2F9;
+  --text-2:  #313237;
 
 }
 

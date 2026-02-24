@@ -23,7 +23,6 @@
   scroll-behavior: smooth;
   margin-top: 32px;
 
-  /* Скрываем некрасивый скроллбар */
   &::-webkit-scrollbar {
     height: 0;
   }
@@ -35,8 +34,7 @@
   }
 
   .product-list__track--slider {
-    /* display: grid;
-    grid-auto-flow: column; */
+
     gap: 16px;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -46,7 +44,6 @@
     height: 0;
   }
 
-  /* ширина карточки */
   & > .product-list__item--slider {
     flex: 0 0 272px;
 
