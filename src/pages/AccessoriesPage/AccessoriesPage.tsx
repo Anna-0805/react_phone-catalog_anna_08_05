@@ -50,13 +50,6 @@ export const AccessoriesPage: React.FC = () => {
     }
   }, [accessories, sort]);
 
-  const totalPages = perPage === 'all' ? 1 : Math.ceil(sorted.length / perPage);
-
-  const visible =
-    perPage === 'all'
-      ? sorted
-      : sorted.slice((page - 1) * perPage, page * perPage);
-
   const isEmpty = !loading && accessories.length === 0;
 
   const updateParams = (params: {
@@ -87,13 +80,21 @@ export const AccessoriesPage: React.FC = () => {
     setSearchParams(next);
   };
 
-  const query = searchParams.get('query') || '';
+  const query = searchParams.get('query')?.toLowerCase().trim() || '';
 
   const filtered = useMemo(() => {
     return sorted.filter(p =>
       p.name.toLowerCase().includes(query.toLowerCase()),
     );
   }, [sorted, query]);
+
+  const totalPages =
+    perPage === 'all' ? 1 : Math.ceil(filtered.length / perPage);
+
+  const visible =
+    perPage === 'all'
+      ? filtered
+      : filtered.slice((page - 1) * perPage, page * perPage);
 
   return (
     <section className="accessories">
@@ -104,7 +105,9 @@ export const AccessoriesPage: React.FC = () => {
         </div>
 
         <h1 className="accessories__title">Accessories</h1>
-        <p className="accessories__count">{accessories.length} models</p>
+        <p className="accessories__count">
+          {query ? `${filtered.length} models` : `${accessories.length} models`}
+        </p>
 
         <div className="accessories__filters">
           <div className="accessories__filter">

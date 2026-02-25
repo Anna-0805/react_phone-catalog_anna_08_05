@@ -51,13 +51,6 @@ export const PhonesPage: React.FC = () => {
     }
   }, [phoneProducts, sort]);
 
-  const totalPages = perPage === 'all' ? 1 : Math.ceil(sorted.length / perPage);
-
-  const visible =
-    perPage === 'all'
-      ? sorted
-      : sorted.slice((page - 1) * perPage, page * perPage);
-
   const isEmpty = !loading && phoneProducts.length === 0;
 
   const updateParams = (params: {
@@ -88,13 +81,21 @@ export const PhonesPage: React.FC = () => {
     setSearchParams(next);
   };
 
-  const query = searchParams.get('query') || '';
+  const query = searchParams.get('query')?.toLowerCase().trim() || '';
 
   const filtered = useMemo(() => {
     return sorted.filter(p =>
       p.name.toLowerCase().includes(query.toLowerCase()),
     );
   }, [sorted, query]);
+
+  const totalPages =
+    perPage === 'all' ? 1 : Math.ceil(filtered.length / perPage);
+
+  const visible =
+    perPage === 'all'
+      ? filtered
+      : filtered.slice((page - 1) * perPage, page * perPage);
 
   return (
     <section className="phones">
@@ -105,7 +106,11 @@ export const PhonesPage: React.FC = () => {
         </div>
 
         <h1 className="phones__title">Mobile phones</h1>
-        <p className="phones__count">{phoneProducts.length} models</p>
+        <p className="phones__count">
+          {query
+            ? `${filtered.length} models`
+            : `${phoneProducts.length} models`}
+        </p>
 
         {/* ФІЛЬТРИ */}
         <div className="phones__filters">

@@ -51,13 +51,6 @@ export const TabletsPage: React.FC = () => {
     }
   }, [tablets, sort]);
 
-  const totalPages = perPage === 'all' ? 1 : Math.ceil(sorted.length / perPage);
-
-  const visible =
-    perPage === 'all'
-      ? sorted
-      : sorted.slice((page - 1) * perPage, page * perPage);
-
   const isEmpty = !loading && tablets.length === 0;
 
   const updateParams = (params: {
@@ -88,13 +81,19 @@ export const TabletsPage: React.FC = () => {
     setSearchParams(next);
   };
 
-  const query = searchParams.get('query') || '';
+  const query = searchParams.get('query')?.toLowerCase().trim() || '';
 
   const filtered = useMemo(() => {
-    return sorted.filter(p =>
-      p.name.toLowerCase().includes(query.toLowerCase()),
-    );
+    return sorted.filter(p => p.name.toLowerCase().includes(query));
   }, [sorted, query]);
+
+  const totalPages =
+    perPage === 'all' ? 1 : Math.ceil(filtered.length / perPage);
+
+  const visible =
+    perPage === 'all'
+      ? filtered
+      : filtered.slice((page - 1) * perPage, page * perPage);
 
   return (
     <section className="tablets">
@@ -105,7 +104,9 @@ export const TabletsPage: React.FC = () => {
         </div>
 
         <h1 className="tablets__title">Tablets</h1>
-        <p className="tablets__count">{tablets.length} models</p>
+        <p className="tablets__count">
+          {query ? filtered.length : tablets.length} models
+        </p>
 
         <div className="tablets__filters">
           <div className="tablets__filter">
