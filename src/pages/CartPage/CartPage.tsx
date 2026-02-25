@@ -6,7 +6,7 @@ import { useCartContext } from '../../context/CartContext';
 import './CartPage.scss';
 
 export const CartPage: React.FC = () => {
-  const { cartItems, total } = useCartContext();
+  const { cartItems, total, clear } = useCartContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -41,7 +41,11 @@ export const CartPage: React.FC = () => {
 
             <button
               className="cart-summary__button"
-              onClick={() => setIsModalOpen(true)}
+              disabled={cartItems.length === 0}
+              onClick={() => {
+                setIsModalOpen(true);
+                clear();
+              }}
             >
               Checkout
             </button>
